@@ -12,7 +12,7 @@
 # the client info is missing.
 
 
-$LOGFILE = "/users/protonk/Desktop/logs.txt";
+my $LOGFILE = <STDIN>;
 open(LOGFILE) or die("Check the file name!");
 foreach $line (<LOGFILE>) {
     chomp($line);  

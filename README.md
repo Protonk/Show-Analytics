@@ -2,6 +2,8 @@
 
 This will be a rough step-by step guide for anyone who wants to play with show analytics on their own. Some minimal competency is expected, but not much. If I can do it, anyone can.
 
+Motivated partially by [this blog post](http://shiftcommandawesome.com/notverycritical).
+
 ## Get the data
 
 Rackspace keeps month-day-hour logs in a hidden file on the root level of the cloud container. In order to access it you need to open up Cyberduck (or any FTP client) and show hidden files (Shift+Command+R on Cyberduck). You'll see a folder named `.CDN_ACCESS_LOGS` and inside that a folder named `Podcasts`. Download this folder.

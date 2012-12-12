@@ -2,3 +2,4 @@
 .Rhistory
 .RData
 Show Analytics.Rproj
+*.DS_Store

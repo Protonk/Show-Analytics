@@ -1,5 +1,8 @@
 #!/usr/bin/perl 
 
+use strict;
+use warnings;
+
 ## can flatten rackspace logs w/ something like:
 # find . -name "*.gz" -exec cat {} \; > ../logs.txt.gz
 # bad things happen if you use "." and don't exempt output from the search. :)
@@ -11,26 +14,26 @@
 # this is not always the format, sometimes the trailing hyphen is missing. Sometimes
 # the client info is missing.
 
-
-my $LOGFILE = <STDIN>;
-open(LOGFILE) or die("Check the file name!");
-foreach $line (<LOGFILE>) {
-    chomp($line);  
-    # Everything is UTC
-    $line =~ s/ \+[0-9]{4}//;
-    # Don't need delimiters around the time anymore
-    $line =~ s/\[|\]//g;
-    # Remove some hyphens
-    $line =~ s/ (- -) / /g;
-    $line =~ s/"-"/-/g;
-    # Rackspace changed formats to have trailing hyphens for some reason
-    $line =~ s/ +-$//;
-    # drop quotes around requests
-    $line =~ s/"([^"]+)"/$1/;
-    # Drop lines without client info (vanishingly small proportion)
-    if ($line =~ /"([^"]+)"/) {
-    	print "$line\n";
-    	}
+open (LOGFILE, "/Users/Protonk/Desktop/logs.txt") or die("Check the file name!");
+my @data = <LOGFILE>;
+foreach my $line (@data) {
+  chomp($line);  
+	# Everything is UTC
+	$line =~ s/ \+[0-9]{4}//;
+	# Don't need delimiters around the time anymore
+	$line =~ s/\[|\]//g;
+	# Remove some hyphens
+	$line =~ s/ (- -) / /g;
+	$line =~ s/"-"/-/g;
+	# Rackspace changed formats to have trailing hyphens for some reason
+	$line =~ s/ +-$//;
+	# drop quotes around requests
+	$line =~ s/"([^"]+)"/$1/;
+	# Drop lines without client info (vanishingly small proportion)
+	if ($line =~ /"([^"]+)"/) {
+		print "$line\n";
+		}
 }
 
+close (LOGFILE);
 

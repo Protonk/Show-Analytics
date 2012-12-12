@@ -34,8 +34,7 @@ weekly.df <- ddply(accum.req, c("Episode", "Week"), .fun = function(x) {
 																												 })			
 weekly.sum.df <- ddply(weekly.df, "Week", summarise, Complete = sum(Complete), Total = sum(Total))
 
-# drop first week
-weekly.sum.df <- weekly.sum.df[-1, ]
+
 weekly.sum.df <- melt(weekly.sum.df, id.var = "Week", variable.name = "Type", value.name = "Listeners")   
 
 

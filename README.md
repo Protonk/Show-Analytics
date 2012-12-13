@@ -34,7 +34,7 @@ We're not quite ready yet, though. Rackspace formats logs somewhat strangely and
 
 So to get it into a relatively well behaved format we use a tiny preprocessing script. You can run it with something like this:
 
-    >perl /path/to/script/preprocess.pl logs.txt > cleaned.txt
+    >perl /path/to/script/preprocess.pl  > cleaned.txt
     
 This assumes you're in the directory that the log files are in. If you aren't you can turn the relative paths (e.g. `logs.txt`) into absolute paths (`/path/to/logs.txt`)
 

@@ -36,7 +36,6 @@ So to get it into a relatively well behaved format we use a tiny preprocessing s
 
     >perl /path/to/script/preprocess.pl  > cleaned.txt
     
-This assumes you're in the directory that the log files are in. If you aren't you can turn the relative paths (e.g. `logs.txt`) into absolute paths (`/path/to/logs.txt`)
 
 ## Set up R 
 
